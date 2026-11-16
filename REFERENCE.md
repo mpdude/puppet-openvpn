@@ -499,6 +499,7 @@ The following parameters are available in the `openvpn::client` defined type:
 * [`server_extca_enabled`](#-openvpn--client--server_extca_enabled)
 * [`remote_cert_tls`](#-openvpn--client--remote_cert_tls)
 * [`private_key_password`](#-openvpn--client--private_key_password)
+* [`certificate_created_notify`](#-openvpn--client--certificate_created_notify)
 
 ##### <a name="-openvpn--client--server"></a>`server`
 
@@ -775,6 +776,14 @@ Default value: `true`
 Data type: `Optional[String]`
 
 Optional password to protect the generated private key. If set, the key is not generated with "nopass" but instead EASYRSA_PASSOUT is set accordingly.
+
+Default value: `undef`
+
+##### <a name="-openvpn--client--certificate_created_notify"></a>`certificate_created_notify`
+
+Data type: `Any`
+
+Resource (reference) to notify only when this client's certificate is actually (re-)generated, as opposed to any other change managed by this define (e.g. shared server settings that end up in every client's .ovpn file). Useful for hooking external automation to genuine certificate-creation events.
 
 Default value: `undef`
 
